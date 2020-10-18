@@ -1,60 +1,95 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <v-container fluid>
+      <v-row align="start" justify="center">
+        <v-col cols="10">
+          <v-textarea
+          outlined
+          name="input-7-4"
+          label="テキストを入力してください"
+          v-model="InputText"
+        ></v-textarea>
+        </v-col>
+        <v-col cols="2">
+          <v-btn outlined @click="SendData"> 文字数をカウント </v-btn>
+        </v-col>
+      </v-row>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      <v-row align="start" justify="center">
+        <v-col cols="6">
+        <v-card
+          max-width="450"
+          class="mx-auto"
+        >
+          <v-toolbar
+            dark
+          >
+            <v-toolbar-title>Result</v-toolbar-title>
+          </v-toolbar>
 
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main>
+          <v-list three-line>
+            <template v-for="(item, index) in items">
+              <v-list-item
+                :key="item.title"
+              >
+                <v-list-item-content>
+                  <v-list-item-title >{{ index }}: {{ item }}</v-list-item-title>
+                  <v-list-item-subtitle> {{ item.text }} </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+              <v-divider
+                :key="index"
+                :inset="item.inset"
+              ></v-divider>
+            </template>
+          </v-list>
+        </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import axios from 'axios'
 
 export default {
   name: 'App',
 
-  components: {
-    HelloWorld
+  data () {
+    return {
+      // 入力データ
+      InputText: '',
+      TextLength: null,
+      items: []
+    }
   },
 
-  data: () => ({
-    //
-  })
+  methods: {
+    SendData: function () {
+      // var data = { text: this.InputText }
+
+      // axios
+      //   .post('/api/post', data)
+      //   .then(response => {
+      //     this.items.push(response.data)
+      //   })
+      //   .catch(err => {
+      //     alert('APIサーバと接続できません')
+      //     err = null
+      //   })
+      axios
+        .get('http://127.0.0.1:5000/')
+        .then(response => {
+          console.log(response.data)
+          // this.items.push(response.data)
+          this.items = response.data
+        })
+        .catch(err => {
+          alert('APIサーバと接続できません')
+          err = null
+        })
+    }
+  }
 }
 </script>

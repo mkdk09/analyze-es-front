@@ -11,7 +11,13 @@
         ></v-textarea>
         </v-col>
         <v-col cols="2">
-          <v-btn outlined @click="SendData"> 文字数をカウント </v-btn>
+          <v-select
+            v-model="topn"
+            :items="maxResult"
+            label="件数"
+            number
+          ></v-select>
+          <v-btn outlined @click="SendData"> 解析する </v-btn>
         </v-col>
       </v-row>
 
@@ -52,6 +58,8 @@
 
 <script>
 import axios from 'axios'
+const maxResult = [...Array(51).keys()]
+maxResult.splice(0, 1)
 
 export default {
   name: 'App',
@@ -61,27 +69,22 @@ export default {
       // 入力データ
       InputText: '',
       TextLength: null,
+      topn: 10,
+      maxResult: maxResult,
       items: []
     }
   },
 
   methods: {
     SendData: function () {
-      // var data = { text: this.InputText }
+      var data = {
+        text: this.InputText,
+        topn: this.topn
+      }
 
-      // axios
-      //   .post('/api/post', data)
-      //   .then(response => {
-      //     this.items.push(response.data)
-      //   })
-      //   .catch(err => {
-      //     alert('APIサーバと接続できません')
-      //     err = null
-      //   })
       axios
-        .get('http://127.0.0.1:5000/')
+        .post('http://127.0.0.1:5000/', data)
         .then(response => {
-          console.log(response.data)
           // this.items.push(response.data)
           this.items = response.data
         })
@@ -89,6 +92,17 @@ export default {
           alert('APIサーバと接続できません')
           err = null
         })
+      // axios
+      //   .get('http://127.0.0.1:5000/')
+      //   .then(response => {
+      //     console.log(response.data)
+      //     // this.items.push(response.data)
+      //     this.items = response.data
+      //   })
+      //   .catch(err => {
+      //     alert('APIサーバと接続できません')
+      //     err = null
+      //   })
     }
   }
 }

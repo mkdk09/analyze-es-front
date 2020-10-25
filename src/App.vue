@@ -6,7 +6,7 @@
           <v-textarea
           outlined
           name="input-7-4"
-          label="テキストを入力してください"
+          label="エントリーシートの内容を入力してください"
           v-model="InputText"
         ></v-textarea>
         </v-col>
@@ -36,16 +36,14 @@
           <v-list three-line>
             <template v-for="(item, index) in items">
               <v-list-item
-                :key="item.title"
+                :key="item"
               >
                 <v-list-item-content>
                   <v-list-item-title >{{ index }}: {{ item }}</v-list-item-title>
-                  <v-list-item-subtitle> {{ item.text }} </v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
               <v-divider
                 :key="index"
-                :inset="item.inset"
               ></v-divider>
             </template>
           </v-list>
@@ -68,7 +66,6 @@ export default {
     return {
       // 入力データ
       InputText: '',
-      TextLength: null,
       topn: 10,
       maxResult: maxResult,
       items: []
@@ -83,26 +80,15 @@ export default {
       }
 
       axios
-        .post('http://127.0.0.1:5000/', data)
+        // .post('http://127.0.0.1:5000/', data)
+        .post('https://analyze-es.herokuapp.com/', data)
         .then(response => {
-          // this.items.push(response.data)
           this.items = response.data
         })
         .catch(err => {
           alert('APIサーバと接続できません')
           err = null
         })
-      // axios
-      //   .get('http://127.0.0.1:5000/')
-      //   .then(response => {
-      //     console.log(response.data)
-      //     // this.items.push(response.data)
-      //     this.items = response.data
-      //   })
-      //   .catch(err => {
-      //     alert('APIサーバと接続できません')
-      //     err = null
-      //   })
     }
   }
 }

@@ -81,7 +81,8 @@ export default {
 
       axios
         // .post('http://127.0.0.1:5000/', data)
-        .post('https://analyze-es.herokuapp.com/', data)
+        // .post('https://analyze-es.herokuapp.com/', data)
+        .post(process.env.VUE_APP_API_URL, data)
         .then(response => {
           this.items = response.data
         })

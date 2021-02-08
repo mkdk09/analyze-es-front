@@ -5,17 +5,19 @@
       dark
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-toolbar-title>Analyzees</v-toolbar-title>
-      <router-link to="/">Analyzees</router-link>
-      <router-link to="/analyze">Go to analyze</router-link>
-      <div class="flex-grow-1"></div>
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
+      <v-toolbar-title class="mx-1 px-1">Analyzees</v-toolbar-title>
+      <!-- <router-link to="/">Analyzees</router-link> -->
+      <!-- <router-link to="/analyze">Go to analyze</router-link> -->
+      <!-- <div class="flex-grow-1"></div> -->
+      <v-btn text to="/" class="mx-1 px-1"><v-icon>mdi-home</v-icon>Home</v-btn>
+      <v-btn text to="/analyze" class="mx-1 px-1"><v-icon>mdi-file-chart</v-icon>Analyze</v-btn>
+      <!-- <v-btn icon>
+        <v-icon>mdi-home</v-icon>
       </v-btn>
       <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-      <v-menu
+        <v-icon>mdi-file-chart</v-icon>
+      </v-btn> -->
+      <!-- <v-menu
         left
         bottom
       >
@@ -33,7 +35,7 @@
             <v-list-item-title>りんく {{ n }}</v-list-item-title>
           </v-list-item>
         </v-list>
-      </v-menu>
+      </v-menu> -->
     </v-app-bar>
   </div>
 </template>

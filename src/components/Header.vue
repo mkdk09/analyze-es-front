@@ -5,7 +5,7 @@
       dark
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-toolbar-title class="mx-1 px-1">Analyzees</v-toolbar-title>
+      <v-toolbar-title class="mx-1 px-1">ANALYZEES</v-toolbar-title>
       <!-- <router-link to="/">Analyzees</router-link> -->
       <!-- <router-link to="/analyze">Go to analyze</router-link> -->
       <!-- <div class="flex-grow-1"></div> -->

@@ -61,5 +61,9 @@ https://yoshinorin.net/2019/07/20/nuxt-js-axios-url-relative/
 ### Vue Router
 https://qiita.com/hshota28/items/765cf903f055754f7557  
 
+### 背景色
+https://vuetifyjs.com/ja/styles/colors/#section-30de30c630ea30a230eb30ab30e930fc  
+https://qiita.com/tutti2612/items/ffc0b14266065365f11a  
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

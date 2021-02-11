@@ -26,25 +26,20 @@
         <v-card
           max-width="450"
           class="mx-auto"
+          v-show="resultShow"
         >
-          <v-toolbar
-            dark
-          >
+          <v-toolbar dark>
             <v-toolbar-title>Result</v-toolbar-title>
           </v-toolbar>
 
           <v-list three-line>
             <template v-for="(item, index) in items">
-              <v-list-item
-                :key="item"
-              >
+              <v-list-item :key="item">
                 <v-list-item-content>
                   <v-list-item-title >{{ index }}: {{ item }}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-divider
-                :key="index"
-              ></v-divider>
+              <v-divider :key="index"></v-divider>
             </template>
           </v-list>
         </v-card>
@@ -67,7 +62,8 @@ export default {
       InputText: '',
       topn: 10,
       maxResult: maxResult,
-      items: []
+      items: [],
+      resultShow: false
     }
   },
 
@@ -84,6 +80,7 @@ export default {
         .post(process.env.VUE_APP_API_URL, data)
         .then(response => {
           this.items = response.data
+          this.resultShow = true
         })
         .catch(err => {
           alert('APIサーバと接続できません')

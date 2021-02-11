@@ -4,6 +4,7 @@
       <v-col cols="10">
         <v-textarea
         outlined
+        background-color="white"
         name="input-7-4"
         label="エントリーシートの内容を入力してください"
         v-model="InputText"

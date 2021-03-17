@@ -65,5 +65,8 @@ https://qiita.com/hshota28/items/765cf903f055754f7557
 https://vuetifyjs.com/ja/styles/colors/#section-30de30c630ea30a230eb30ab30e930fc  
 https://qiita.com/tutti2612/items/ffc0b14266065365f11a  
 
+### ローディング
+https://qiita.com/terufumi1122/items/214d82f74370ef377aa2  
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

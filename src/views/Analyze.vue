@@ -23,6 +23,7 @@
 
     <v-row align="start" justify="center">
       <v-col cols="6">
+        <Loading v-show="!resultShow"></Loading>
         <v-card
           max-width="450"
           class="mx-auto"
@@ -50,6 +51,7 @@
 
 <script>
 import axios from 'axios'
+import Loading from '../components/Loading'
 const maxResult = [...Array(51).keys()]
 maxResult.splice(0, 1)
 
@@ -87,6 +89,9 @@ export default {
           err = null
         })
     }
+  },
+  components: {
+    Loading
   }
 }
 </script>

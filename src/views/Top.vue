@@ -6,16 +6,20 @@
     >
       <h1 class="display-3 text-center">ANALYZEES</h1>
     </v-row>
+
     <v-row
       class="mx-0" style="height: 200px;"
       justify="center" align-content="center"
     >
-      <h2 class="headline text-center">数百社のエントリーシートのデータを学習したAI(Doc2Vecモデル)が<br>
-      入力した文章に対してどの企業のエントリーシートに似ているか判定します</h2>
+      <h2 class="headline text-center">
+        数百社のエントリーシートのデータを学習したAI(Doc2Vecモデル)が<br>
+        入力した文章に対してどの企業のエントリーシートに似ているか判定します
+      </h2>
     </v-row>
+
     <v-row
-    align="center"
-    justify="space-around"
+      align="center"
+      justify="space-around"
     >
       <v-btn
         tile

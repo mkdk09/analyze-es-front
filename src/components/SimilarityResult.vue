@@ -1,0 +1,29 @@
+<template>
+  <v-card max-width="450" class="mx-auto" v-show="resultShow">
+    <v-toolbar dark>
+      <v-toolbar-title>
+        Result
+      </v-toolbar-title>
+    </v-toolbar>
+
+    <v-list three-line>
+      <template v-for="(item, index) in items">
+        <v-list-item :key="item">
+          <v-list-item-content>
+            <v-list-item-title>
+              {{ index }}: {{ item }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider :key="index"></v-divider>
+      </template>
+    </v-list>
+  </v-card>
+</template>
+
+<script>
+export default {
+  name: 'SimilarityResult',
+  props: ['items']
+}
+</script>
